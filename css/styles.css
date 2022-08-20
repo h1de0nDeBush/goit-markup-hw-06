@@ -2,6 +2,18 @@ body{
     font-family: Roboto;
 
 }
+.visually-hidden{
+    position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        border: 0;
+        padding: 0;
+        white-space: nowrap;
+        clip-path: inset(100%);
+        clip: rect(0 0 0 0);
+        overflow: hidden;
+}
 .list{
     list-style: none;
 }
@@ -482,7 +494,10 @@ margin-bottom: 16px;
     color: #FFFFFF;
 }
 
-
+.invite{
+    margin-top: 23px;
+    margin-left: 78px;
+}
 
 .invite-label{
     font-weight: 700;
@@ -491,6 +506,11 @@ margin-bottom: 16px;
         letter-spacing: 0.03em;
         text-transform: uppercase;
         color: #FFFFFF;
+}
+.footer-form{
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
 }
 .email-input{
     width: 358px;
@@ -525,10 +545,15 @@ margin-bottom: 16px;
             text-align: center;
             justify-content: center;
             gap: 10px;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);            
 }
 .invite-icon{
-    fill: currentColor;
-    
+    fill: currentColor;   
+}
+
+.invite-icon:hover,
+.invite-icon:focus{
+    background-color: #2196F3;
 }
 /*****************gallery*****************/
 .gallery{
@@ -676,7 +701,11 @@ background-color: #2196F3;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     background: #FFFFFF;
-
+    fill: currentColor;
+}
+.modal-close:hover,
+.modal-close:focus{
+    fill: #188CE8;
 }
 
 .is-hidden{
@@ -699,7 +728,7 @@ background-color: #2196F3;
     margin-bottom: 10px;
 }
 .modal-label{
-    margin-bottom: 4px;
+    
     font-size: 12px;
         line-height: calc(14/12);
         letter-spacing: 0.01em;
@@ -712,11 +741,22 @@ background-color: #2196F3;
     border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: 4px;
     padding-left: 42px;
+    outline: transparent;
+
 }
 .modal-wrap{
+    margin-top: 4px;
     position: relative;
 }
-.imput-icon{
+
+.modal-input:focus,
+.modal-text:focus{
+    border-color: rgba(33, 150, 243, 1);
+}
+.modal-input:focus + .input-icon{
+    fill:rgba(33, 150, 243, 1);
+}
+.input-icon{
     position: absolute;
     left: 15px;
     top: 50%;
@@ -729,6 +769,8 @@ background-color: #2196F3;
     border-radius: 4px;
     resize: none;
     padding: 12px 16px ;
+    outline: transparent;
+    margin-top: 4px;
 }
 .policy-label{
     font-size: 14px;
@@ -736,6 +778,25 @@ background-color: #2196F3;
         letter-spacing: 0.03em;
         color: #757575;
         margin-left: 8px;
+        display: flex;
+        align-items: center;
+}
+.policy-label::before{
+    content: '';
+    width: 16px;
+    height: 15px;
+    border: 2px solid rgba(33, 33, 33, 1);
+    border-radius:2px;
+    margin-left:8px ;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                background-image 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-check:checked +.policy-label::before{
+    background-color: #2196F3;
+    border: none;
+    background-image: url(../images/check.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .policy-label>.policy-link{
     color:rgba(33, 150, 243, 1)
